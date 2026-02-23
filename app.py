@@ -21,7 +21,7 @@ if run:
         df = pd.read_csv(uploaded_file)
         x = df.iloc[:, 0:1]
         y = df.iloc[:, -1]
-        img = helper.plotter(x, y)
+        img = plotter(x, y)
         if model_type == "Linear Regression":
             y_pred, r2_score = model_train(df,model_type)
             img1 = plotter(x, y, y_pred, 0)
