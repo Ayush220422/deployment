@@ -14,7 +14,7 @@ model_type = st.selectbox(
     ["Linear Regression", "Polynomial Regression"]
 )
 if model_type == "Polynomial Regression":
-    poly_value = st.slider("Degree", 0, 20, 2)
+    poly_value = st.slider("Degree", 1, 20, 2)
 
 if run:
     if uploaded_file is not None:
@@ -22,11 +22,14 @@ if run:
         x = df.iloc[:, 0:1]
         y = df.iloc[:, -1:]
         img = plotter(x, y)
+        st.pyplot(img)
         if model_type == "Linear Regression":
             y_pred, r2_score = model_train(df, model_type)
             img1 = plotter(x, y, y_pred, 0)
+            st.pyplot(img1)
         if model_type == "Polynomial Regression":
             y_pred, r2_score = model_train(df, model_type, poly_value)
             img1 = plotter(x, y, y_pred, 1)
+            st.pyplot(img1)
     else:
         st.error("Please Enter a File First!!!")
