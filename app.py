@@ -27,9 +27,11 @@ if run:
             y_pred, r2_score = model_train(df, model_type)
             img1 = plotter(x, y, y_pred, 0)
             st.pyplot(img1)
+            st.write(" R2_score :",r2_score)
         if model_type == "Polynomial Regression":
             y_pred, r2_score = model_train(df, model_type, poly_value)
             img1 = plotter(x, y, y_pred, 1)
             st.pyplot(img1)
+            st.write(" R2_score :",r2_score)
     else:
         st.error("Please Enter a File First!!!")
