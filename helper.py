@@ -29,7 +29,7 @@ def plotter(x, y, y_pred=None, poly=None):
 
 def model_train(df,model_type,poly_value = None):
     x = df.iloc[:, 0:1]
-    y = df.iloc[:, -1]
+    y = df.iloc[:, -1:]
     x_train, x_test, y_train, y_test = train_test_split(
         x, y, test_size=0.2, random_state=2)
     model = LinearRegression()
