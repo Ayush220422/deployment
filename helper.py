@@ -16,18 +16,18 @@ def plotter(x, y, y_pred=None, poly=None):
     ax.set_ylabel('outputs', fontsize=5)
 
     if poly == None:
-        fig = ax.plot(x, y, color='blue', marker='.')
+        ax.plot(x, y, color='blue', marker='.')
     elif poly == 0:
-        fig = ax.plot(x, y, color='blue', marker='.')
-        fig = ax.plot(x, y_pred, color='red', marker='red')
+        ax.plot(x, y, color='blue', marker='.')
+        ax.plot(x, y_pred, color='red', color='red')
     elif poly == 1:
-        fig = ax.plot(x, y, color='blue', marker='.')
-        fig = ax.plot(x, y_pred, color='red', marker='r.')
+        ax.plot(x, y, color='blue', marker='.')
+        ax.plot(x, y_pred, color='red', marker='r.')
 
     return fig
 
 
-def model_train(df,model_type,poly_value = None):
+def model_train(df, model_type, poly_value=None):
     x = df.iloc[:, 0:1]
     y = df.iloc[:, -1:]
     x_train, x_test, y_train, y_test = train_test_split(
@@ -38,18 +38,18 @@ def model_train(df,model_type,poly_value = None):
         model.fit(x_train, y_train)
         y_pred = model.predict(x)
         y_pred1 = model.predict(x_test)
-    #   r2_Score = r2_score(y_test, y_pred1)
+        r2_Score1 = r2_score(y_test, y_pred1)
 
-        return y_pred, r2_score(y_test, y_pred1)
+        return y_pred, r2_Score1
     elif model_type == "Polynomial Regression":
         poly = PolynomialFeatures(degree=poly_value)
 
         x_train_trans = poly.fit_transform(x_train)
         x_test_trans = poly.transform(x_test)
+        x_full_trans = poly.transform(x)
         model.fit(x_train_trans, y_train)
-        y_pred = model.predict(x)
+        y_pred = model.predict(x_full_trans)
         y_pred1 = model.predict(x_test_trans)
-    #   r2_Score = r2_score(y_test, y_pred1)
+        r2_Score = r2_score(y_test, y_pred1)
 
-        return y_pred, r2_score(y_test, y_pred1)
-
+        return y_pred, r2_Score1
