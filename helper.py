@@ -21,7 +21,7 @@ def plotter(x, y, y_pred=None, poly=None):
     elif poly == 0:
         fig = ax.plot(x, y, color='blue', marker='.')
         fig = ax.plot(x, y_pred, color='red', marker='red')
-    elif poly = 1:
+    elif poly == 1:
         fig = ax.plot(x, y, color='blue', marker='.')
         fig = ax.plot(x, y_pred, color='red', marker='r.')
 
