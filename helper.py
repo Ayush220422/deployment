@@ -32,9 +32,9 @@ def model_train(df, model_type, poly_value=None):
     y = df.iloc[:, -1:]
     x_train, x_test, y_train, y_test = train_test_split(
         x, y, test_size=0.2, random_state=2)
-    model = LinearRegression()
 
     if model_type == "Linear Regression":
+        model = LinearRegression()
         model.fit(x_train, y_train)
         y_pred = model.predict(x)
         y_pred1 = model.predict(x_test)
@@ -42,6 +42,7 @@ def model_train(df, model_type, poly_value=None):
 
         return y_pred, r2_Score1
     elif model_type == "Polynomial Regression":
+        model = LinearRegression()
         poly = PolynomialFeatures(degree=poly_value)
 
         x_train_trans = poly.fit_transform(x_train)
