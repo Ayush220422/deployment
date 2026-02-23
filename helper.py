@@ -14,6 +14,8 @@ def plotter(x, y, y_pred=None, poly=None):
     ax.set_title('2D- Data plotted', fontsize=5)
     ax.set_xlabel('inputs', fontsize=2)
     ax.set_ylabel('outputs', fontsize=5)
+    x = x.values.ravel()
+    y = y.values.ravel()
 
     if poly == None:
         ax.plot(x, y, 'b.')
