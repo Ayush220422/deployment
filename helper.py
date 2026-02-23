@@ -10,16 +10,16 @@ from sklearn.preprocessing import PolynomialFeatures
 
 
 def plotter(x, y, y_pred=None, poly=None):
-    fig, ax = plt.subplots(figsize=(1, 1))
+    fig, ax = plt.subplots(figsize=(4, 4))
     ax.set_title('2D- Data plotted', fontsize=5)
     ax.set_xlabel('inputs', fontsize=2)
     ax.set_ylabel('outputs', fontsize=5)
 
     if poly == None:
-        ax.scatter(x, y, 'b.')
+        ax.plot(x, y, 'b.')
     elif poly == 0:
-        ax.scatter(x, y, 'b.')
-        ax.plot(x, y_pred, color='r')
+        ax.scatter(x, y, color='blue', marker='.')
+        ax.plot(x, y_pred, color='red')
     elif poly == 1:
         ax.plot(x, y, 'b.')
         ax.plot(x, y_pred,'r.')
