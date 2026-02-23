@@ -20,7 +20,7 @@ if run:
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         x = df.iloc[:, 0:1]
-        y = df.iloc[:, -1]
+        y = df.iloc[:, -1:]
         img = plotter(x, y)
         if model_type == "Linear Regression":
             y_pred, r2_score = model_train(df,model_type)
