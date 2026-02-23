@@ -19,7 +19,7 @@ def plotter(x, y, y_pred=None, poly=None):
         ax.plot(x, y, color='blue', marker='.')
     elif poly == 0:
         ax.plot(x, y, color='blue', marker='.')
-        ax.plot(x, y_pred, color='red', marker='.')
+        ax.plot(x, y_pred, color='red')
     elif poly == 1:
         ax.plot(x, y, color='blue', marker='.')
         ax.plot(x, y_pred, color='red', marker='.')
