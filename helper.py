@@ -16,12 +16,12 @@ def plotter(x, y, y_pred=None, poly=None):
     ax.set_ylabel('outputs', fontsize=5)
 
     if poly == None:
-        ax.scatter(x, y, color='blue', marker='.')
+        ax.scatter(x, y, 'b.')
     elif poly == 0:
-        ax.scatter(x, y, color='blue', marker='.')
-        ax.plot(x, y_pred, color='red')
+        ax.scatter(x, y, 'b.')
+        ax.plot(x, y_pred, color='r')
     elif poly == 1:
-        ax.scatter(x, y, color='blue', marker='.')
+        ax.plot(x, y, 'b.')
         ax.plot(x, y_pred,'r.')
 
     return fig
