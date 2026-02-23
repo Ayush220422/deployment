@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from helper import plotter
+from helper import model_train
 
 st.sidebar.title("Linear and Polynomial Regression")
 
@@ -22,10 +23,10 @@ if run:
         y = df.iloc[:, -1]
         img = helper.plotter(x, y)
         if model_type == "Linear Regression":
-            y_pred, r2_score = helper.model_train(df,model_type)
+            y_pred, r2_score = model_train(df,model_type)
             img1 = plotter(x, y, y_pred, 0)
         if model_type == "Polynomial Regression":
-            y_pred, r2_score = helper.model_train(df,model_type,poly_value)
+            y_pred, r2_score = model_train(df,model_type,poly_value)
             img1 = plotter(x, y, y_pred, 1)
     else:
         st.error("Please Enter a File First!!!")
