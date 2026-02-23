@@ -19,7 +19,7 @@ def plotter(x, y, y_pred=None, poly=None):
         ax.plot(x, y, color='blue', marker='.')
     elif poly == 0:
         ax.plot(x, y, color='blue', marker='.')
-        ax.plot(x, y_pred, color='red', color='red')
+        ax.plot(x, y_pred, color='red', marker='.')
     elif poly == 1:
         ax.plot(x, y, color='blue', marker='.')
         ax.plot(x, y_pred, color='red', marker='r.')
@@ -50,6 +50,6 @@ def model_train(df, model_type, poly_value=None):
         model.fit(x_train_trans, y_train)
         y_pred = model.predict(x_full_trans)
         y_pred1 = model.predict(x_test_trans)
-        r2_Score = r2_score(y_test, y_pred1)
+        r2_Score1 = r2_score(y_test, y_pred1)
 
         return y_pred, r2_Score1
